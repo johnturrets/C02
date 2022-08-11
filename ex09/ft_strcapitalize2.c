@@ -17,24 +17,23 @@ int is_lower(char c)
 char *ft_strcapitalize(char *str)
 {
     char *start = str;
-    int i = 0;
     int nextCap = 1;
     
-    while(str[i] != '\0')
+    while(str)
     {   
-        if (!is_alnum(str[i])) 
+        if (!is_alnum(*str)) 
         {
             nextCap = 1;
         }
         else
         {
-            if (nextCap && is_lower(str[i]))
+            if (nextCap && is_lower(*(str)))
             {
-                str[i] = str[i] - 32; // 32 is diff between 'A' and 'a'
+                *(str) = *(str) - 32;
             }
             nextCap = 0;
         }
-        i++;
+        str++;
     }
     return start;
 }
